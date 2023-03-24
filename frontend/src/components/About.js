@@ -14,7 +14,7 @@ import b6 from "./media/eye-2-line 1.png";
 const About = () => {
   return (
     <Container fluid className="p-0 m-0">
-      <Row style={{ paddingLeft: '2%', paddingRight: '2%' }}>
+      <Row style={{ paddingLeft: '5%', paddingRight: '5%' }}>
         <h3 style={{ paddingTop: 50, width: "auto" }} className="header">
           Minimum Living Cost Takes Care Of Everything
         </h3>

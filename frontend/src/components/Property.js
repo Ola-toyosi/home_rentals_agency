@@ -14,7 +14,7 @@ const Properties = () => {
   return (
     <Container fluid className="p-0 m-0" style={{ backgroundColor: "#F5F5F5" }}>
       <Row
-        style={{ paddingLeft: '2%', paddingRight: '2%' }}
+        style={{ paddingLeft: '5%', paddingRight: '5%' }}
         className="justify-content-between"
       >
         <h3 style={{ paddingTop: 50, width: "auto" }} className="header">
@@ -30,14 +30,14 @@ const Properties = () => {
         </Col>
       </Row>
       <Row
-        style={{ paddingLeft: '2%', paddingRight: '2%', paddingTop: 50 }}
+        style={{ paddingLeft: '5%', paddingRight: '2%', paddingTop: 50 }}
         xs={1}
         md={3}
         className="justify-content-space-between g-4"
       >
         {Array.from({ length: 6 }).map((_, idx) => (
           <Col style={{ borderRadius: '20px' }} >
-            <Card key={'prop.id'} style={{ borderRadius: '20px', backgroundColor: '#ffffff' }} >
+            <Card key={'prop.id'} style={{ borderRadius: '30px', backgroundColor: '#ffffff' }} >
               <Card.Img variant="top" src={prop1} />
               <Card.Body>
                 <Card.Title>
