@@ -14,13 +14,13 @@ import b6 from "./media/eye-2-line 1.png";
 const About = () => {
   return (
     <Container fluid className="p-0 m-0">
-      <Row style={{ paddingLeft: '5%', paddingRight: '5%' }}>
+      <Row style={{  marginLeft:0, marginRight:0, paddingLeft: '5%', paddingRight: '5%' }}>
         <h3 style={{ paddingTop: 50, width: "auto" }} className="header">
           Minimum Living Cost Takes Care Of Everything
         </h3>
       </Row>
       <Row
-        style={{ paddingLeft: '2%', paddingRight: '2%' }}
+        style={{  marginLeft:0, marginRight:0, paddingLeft: '2%', paddingRight: '2%' }}
         className="center-align"
       >
         <Col sm={4}>
@@ -30,7 +30,7 @@ const About = () => {
           </Card>
         </Col>
         <Col sm={8}>
-          <Row>
+          <Row style= {{ marginLeft:0, marginRight:0,}}>
             <Col sm={6} md={4} style={{ paddingBottom: 20 }}>
               <Card style={{ width: "auto", border: 0 }}>
                 <Badge bg="white" style={{ width: 60, border: "black" }}>

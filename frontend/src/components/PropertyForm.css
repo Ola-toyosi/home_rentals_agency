@@ -14,13 +14,17 @@
     color: #bbcada;
 }
 
-.image-upload input {
+.image-upload > input[type="file"] {
     display: block;
-    height: 100%;
-    width: 100%;
     position: absolute;
     opacity: 0;
+    top:0;
+    right: 0;
+    left:0;
+    bottom:0;
     cursor: pointer;
+    overflow: hidden;
+    text-align: center;
 }
 
 .btn-custom {

@@ -8,7 +8,7 @@ import logo from "./media/logo 1.png";
 
 const M_Navbar = () => {
   return (
-    <Container fluid style={{ paddingLeft: '2%', paddingRight: '2%' }}>
+    <Container fluid style={{ paddingLeft: '2%', paddingRight: '2%', margin:0 }}>
       <Navbar
         style={{ borderBottom: "1px solid white" }}
         collapseOnSelect

@@ -6,26 +6,28 @@ import "./Hero.css";
 
 const Hero = ({ children }) => {
   return (
-    <Container fluid className=" p-0 m-0 hero">
-      <div>
+    <Container fluid className=" hero">
+      <Row 
+        style={{ marginLeft:0, marginRight:0, paddingLeft: '5%', paddingRight: '5%'   }}
+        >
         <M_Navbar />
-      </div>
-      <div
-        style={{ padding: '2%', gap: 50 }}
+        </Row>
+      <Row
+        style={{ marginLeft:0, marginRight:0, padding: '5%' }}
         className="d-flex flex-row justify-content-between align-items-center h-50"
       >
-        <Col sm={6}>
-          <h1 className="mb-3 text-white textWidth">
+        <Col sm={6} className=" my-auto">
+          <h1 className="mb-3 text-white textWidth text-center">
             The Most Affordable Place To Stay In The San Franciso Bay Area
           </h1>
         </Col>
-        <Col sm={6}>
+        <Col className="text-center my-auto" sm={6}>
           <img />
           <a className="btn btn-outline-light btn-lg" href="#!" role="button">
             Call to action
           </a>
         </Col>
-      </div>
+      </Row>
     </Container>
   );
 };

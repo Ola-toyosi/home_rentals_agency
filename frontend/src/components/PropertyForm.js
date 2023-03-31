@@ -14,20 +14,28 @@ import "./PropertyForm.css";
 
 const PropertyForm = () => {
   return (
-    <Container fluid className="p-0">
+    <Container fluid className="p-0 m-0">
       <Row
-        style={{ padding: 50, textAlign: "center" }}
+        style={{
+          marginLeft: 0,
+          marginRight: 0,
+          padding: "2%",
+          paddingBottom: 0,
+          textAlign: "center",
+        }}
         className="justify-content-between"
       >
-        <h5>
+        <h5 className="text-700">
           Register Your Property With Us And Be Confident That Your Room Will Be
           Filled Out!
         </h5>
       </Row>
-      <Row style={{ padding: '5%' }}>
+      <Row style={{ marginLeft: 0, marginRight: 0, padding: "5%" }}>
         <Card
           style={{
-            padding: 50,
+            marginLeft: 0,
+            marginRight: 0,
+            padding: "3%",
           }}
           className="shadow-lg"
         >
@@ -38,11 +46,13 @@ const PropertyForm = () => {
           <Form className="justify-content-between ">
             <Row
               className="row-cols-lg-auto align-items-center"
-              style={{ padding: 0 }}
+              style={{ marginLeft: 0, marginRight: 0, padding: 0 }}
             >
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyName">Name <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyName">
+                    Name <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyName"
                     name="name"
@@ -53,7 +63,9 @@ const PropertyForm = () => {
               </Col>
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyAddress">Address <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyAddress">
+                    Address <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyAddress"
                     name="address"
@@ -64,7 +76,9 @@ const PropertyForm = () => {
               </Col>
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyUnitNo">Unit Number <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyUnitNo">
+                    Unit Number <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyUnitNo"
                     name="unit"
@@ -74,10 +88,15 @@ const PropertyForm = () => {
                 </FormGroup>
               </Col>
             </Row>
-            <Row className="row-cols-lg-auto g-3 align-items-center">
+            <Row
+              className="row-cols-lg-auto g-3 align-items-center"
+              style={{ marginLeft: 0, marginRight: 0 }}
+            >
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyCity">City <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyCity">
+                    City <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyCity"
                     name="city"
@@ -94,7 +113,9 @@ const PropertyForm = () => {
               </Col>
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyState">State <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyState">
+                    State <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyState"
                     name="state"
@@ -111,7 +132,9 @@ const PropertyForm = () => {
               </Col>
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyRoomType">Room Type <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyRoomType">
+                    Room Type <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyRoomType"
                     name="room"
@@ -127,10 +150,15 @@ const PropertyForm = () => {
                 </FormGroup>
               </Col>
             </Row>
-            <Row className="row-cols-lg-auto g-3 align-items-center">
+            <Row
+              className="row-cols-lg-auto g-3 align-items-center"
+              style={{ marginLeft: 0, marginRight: 0 }}
+            >
               <Col sm={12} lg={4}>
                 <FormGroup style={{ paddingBottom: 20 }}>
-                  <Label className="text-700" for="propertyPrice">Price <span className="text-orange">*</span></Label>
+                  <Label className="text-700" for="propertyPrice">
+                    Price <span className="text-orange">*</span>
+                  </Label>
                   <Input
                     id="propertyPrice"
                     name="price"
@@ -141,8 +169,13 @@ const PropertyForm = () => {
               </Col>
             </Row>
             <Col sm={12} lg={12}>
-              <FormGroup row style={{ paddingBottom: 20 }}>
-                <Label className="text-700" for="propertyDescription">Description <span className="text-orange">*</span></Label>
+              <FormGroup
+                row
+                style={{ marginLeft: 0, marginRight: 0, paddingBottom: 20 }}
+              >
+                <Label className="text-700" for="propertyDescription">
+                  Description <span className="text-orange">*</span>
+                </Label>
                 <Col sm={12}>
                   <Input
                     id="propertyDescription"
@@ -154,8 +187,19 @@ const PropertyForm = () => {
               </FormGroup>
             </Col>
             <Col sm={12} lg={12}>
-              <FormGroup style={{ paddingTop: 20, paddingBottom: 50 }}>
-                <Label className="text-700" for="propertyImages">Upload Photos</Label>
+              <FormGroup
+                row
+                style={{
+                  marginLeft: 0,
+                  marginRight: 0,
+                  marginBottom: 0,
+                  paddingTop: 20,
+                  paddingBottom: 50,
+                }}
+              >
+                <Label className="text-700" for="propertyImages">
+                  Upload Photos
+                </Label>
                 <Col sm={12} className="image-upload">
                   <h5>
                     Drag your images here or{" "}
@@ -166,9 +210,17 @@ const PropertyForm = () => {
                 </Col>
               </FormGroup>
             </Col>
-            <Row sm={12} lg={6} style={{ justifyContent: "center" }}>
+            <Row
+              sm={12}
+              lg={6}
+              style={{
+                marginLeft: 0,
+                marginRight: 0,
+                justifyContent: "center",
+              }}
+            >
               <Button
-                style={{ paddingLeft: '2%', paddingRight: '2%' }}
+                style={{ paddingLeft: "2%", paddingRight: "2%" }}
                 className="text-align-center btn-custom"
               >
                 Add New Property

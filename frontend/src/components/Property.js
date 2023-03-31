@@ -14,7 +14,12 @@ const Properties = () => {
   return (
     <Container fluid className="p-0 m-0" style={{ backgroundColor: "#F5F5F5" }}>
       <Row
-        style={{ paddingLeft: '5%', paddingRight: '5%' }}
+        style={{
+          marginLeft: 0,
+          marginRight: 0,
+          paddingLeft: "5%",
+          paddingRight: "5%",
+        }}
         className="justify-content-between"
       >
         <h3 style={{ paddingTop: 50, width: "auto" }} className="header">
@@ -26,18 +31,24 @@ const Properties = () => {
           sm={4}
           style={{ paddingTop: 50, display: "flex", justifyContent: "right" }}
         >
-          <Button className="text-white btn-custom" >View All Property</Button>
+          <Button className="text-white btn-custom">View All Property</Button>
         </Col>
       </Row>
       <Row
-        style={{ paddingLeft: '5%', paddingRight: '2%', paddingTop: 50 }}
+        style={{
+          marginLeft: 0,
+          marginRight: 0,
+          paddingLeft: "5%",
+          paddingRight: "5%",
+          paddingTop: 50,
+        }}
         xs={1}
         md={3}
         className="justify-content-space-between g-4"
       >
         {Array.from({ length: 6 }).map((_, idx) => (
-          <Col style={{ borderRadius: '20px' }} >
-            <Card key={'prop.id'} style={{ borderRadius: '30px', backgroundColor: '#ffffff' }} >
+          <Col key={"1"} style={{ marginTop: 0, padding: "2%" }}>
+            <Card style={{ borderRadius: "30px", backgroundColor: "#ffffff" }}>
               <Card.Img variant="top" src={prop1} />
               <Card.Body>
                 <Card.Title>
@@ -46,19 +57,26 @@ const Properties = () => {
                 <Card.Text className="room-type">Private Room</Card.Text>
                 <Card.Text className="price">$1200/Month</Card.Text>
               </Card.Body>
-              <Card.Footer>
+              <Card.Footer
+                style={{
+                  borderBottomRightRadius: "25px",
+                  borderBottomLeftRadius: "25px",
+                }}
+                className="text-align-center"
+              >
                 <Row
                   style={{
+                    marginLeft: 0,
+                    marginRight: 0,
                     display: "flex",
-                    justifyContent: "space-between",
-                    paddingLeft: "12%",
-                    paddingRight: "3%",
-                    borderRadius: '20px' 
-                    
+                    alignContent: "center",
                   }}
-                  className=" footer"
+                  className=" footer text-center "
                 >
-                  <Col style={{ width: "auto" }} className="footer-item">
+                  <Col
+                    style={{ width: "auto" }}
+                    className="footer-item justify-content-evenly"
+                  >
                     <small className="text-black">
                       <Card.Img style={{ width: 20 }} src={bed} /> 4
                     </small>
@@ -82,8 +100,10 @@ const Properties = () => {
       <br />
       <Row
         style={{
-          paddingLeft: 100,
-          paddingRight: 100,
+          marginLeft: 0,
+          marginRight: 0,
+          // paddingLeft: 100,
+          // paddingRight: 100,
           paddingTop: 20,
           paddingBottom: 100,
         }}
