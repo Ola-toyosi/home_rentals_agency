@@ -39,7 +39,7 @@ class Pagination extends Component {
     // calculate total pages based on records
     this.totalPages = Math.ceil(this.totalRecords / this.pageLimit);
     
-    console.log(totalRecords, this.totalPages);
+    console.log("okay", totalRecords, this.pageLimit);
 
     this.state = { currentPage: 1 };
     console.log(this.state);
@@ -183,7 +183,7 @@ class Pagination extends Component {
     const { onPageChanged = (f) => f } = this.props;
     const currentPage = Math.max(0, Math.min(page, this.totalPages));
     const paginationData = {
-      currentPage,
+      currentPage: page,
       totalPages: this.totalPages,
       pageLimit: this.pageLimit,
       totalRecords: this.totalRecords,

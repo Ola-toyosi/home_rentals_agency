@@ -10,51 +10,78 @@ import axios from "axios";
 
 class Properties extends Component {
   state = {
-    allProperties: [],
+    allProperties: 0,
     currentProperties: [],
     currentPage: null,
     totalPages: null,
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.fetchProperties();
   }
 
-  fetchProperties = () => {
-    axios
-      .get("http://127.0.0.1:8000/api/properties/")
-      .then((res) => {
+  fetchProperties = async () => {
+    try {
+      await axios.get("http://127.0.0.1:8000/api/properties/").then((res) => {
         this.setState(
           {
             currentProperties: res.data.results,
             allProperties: res.data.count,
-          }
-          // ,
-          // () => console.log("done", res.data, this.state)
+          },
+          () => console.log("done", res.data, this.state)
         );
-      })
-      .catch((err) => console.log(err));
+      });
+    } catch (error) {
+      if (error.response) {
+        // Request made but the server responded with an error
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        // Request made but no response is received from the server.
+        console.log(error.request);
+      } else {
+        // Error occured while setting up the request
+        console.log("Error", error.message);
+      }
+    }
   };
 
   onPageChanged = (data) => {
-    const { currentPage, totalPages } = data; console.log("yeah", data, currentPage)
-
-    axios
-      .get(`http://127.0.0.1:8000/api/properties/?page=${currentPage}`)
-      .then((response) => {
-        const currentProperties = response.data.results;
-        this.setState({ currentPage, currentProperties, totalPages }
-          // , () =>
-          // console.log("done2", this.state)
-        );
-      });
+    const { currentPage, totalPages } = data;
+    console.log("yeah", data, currentPage);
+    try {
+      axios
+        .get(`http://127.0.0.1:8000/api/properties/?page=${currentPage}`)
+        .then((response) => {
+          const currentProperties = response.data.results;
+          this.setState(
+            { currentPage, currentProperties, totalPages }
+            // , () =>
+            // console.log("done2", this.state)
+          );
+        });
+    } catch (error) {
+      if (error.response) {
+        // Request made but the server responded with an error
+        console.log(error.response.data);
+        console.log(error.response.status);
+        console.log(error.response.headers);
+      } else if (error.request) {
+        // Request made but no response is received from the server.
+        console.log(error.request);
+      } else {
+        // Error occured while setting up the request
+        console.log("Error", error.message);
+      }
+    }
   };
 
   render() {
     const { allProperties, currentProperties, currentPage, totalPages } =
       this.state;
     const totalProperties = allProperties;
-    console.log(totalProperties);
+    console.log(this.state);
 
     if (totalProperties === 0) return null;
 
@@ -119,7 +146,7 @@ class Properties extends Component {
           <div>
             <Pagination
               totalRecords={totalProperties}
-              pageLimit={3}
+              pageLimit={currentProperties.length}
               pageNeighbours={1}
               onPageChanged={this.onPageChanged}
             />
