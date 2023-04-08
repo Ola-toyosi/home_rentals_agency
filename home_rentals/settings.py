@@ -57,10 +57,13 @@ MIDDLEWARE = [
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.TokenAuthentication",
-    )
+    ),
+    # "DEFAULT_PAGINATION_CLASS": 'rest_framework.pagination.PageNumberPagination',
+    # "PAGE_SIZE": 2
 }
 
 CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3001",
     "http://localhost:3000",
     "http://127.0.0.1:8000",
 ]
@@ -133,14 +136,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = "static"
+STATIC_ROOT = "staticfiles"
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 REACT_APP_DIR = BASE_DIR / "frontend"
-# STATICFILES_DIRS = [
-#     REACT_APP_DIR / "build" / "static",
-# ]
+STATICFILES_DIRS = [
+    REACT_APP_DIR / "build" / "static",
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

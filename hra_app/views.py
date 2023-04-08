@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .serializers import PropertySerializer
 from .models import Property
+from .pagination import CustomPagination
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
@@ -31,4 +32,6 @@ class PropertyView(viewsets.ModelViewSet):
 
     serializer_class = PropertySerializer
 
-    queryset = Property.objects.all()
+    queryset = Property.objects.all().order_by('-id')
+
+    pagination_class = CustomPagination

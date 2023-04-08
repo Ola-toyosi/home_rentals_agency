@@ -27,7 +27,7 @@ const PropertyCard = (props) => {
     <div>
         <Col key={"1"} style={{ marginTop: 0, padding: "2%" }}>
           <Card title={{name, description, unit_number}} style={{ borderRadius: "30px", backgroundColor: "#ffffff" }}>
-            <Card.Img variant="top" src={image} />
+            <Card.Img style = {{borderRadius: "30px", height: 400}} variant="top" src={image} />
             <Card.Body>
               <Card.Title>
                 {address}, {city}, {state}

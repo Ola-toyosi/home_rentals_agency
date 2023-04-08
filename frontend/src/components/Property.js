@@ -24,30 +24,37 @@ class Properties extends Component {
     axios
       .get("http://127.0.0.1:8000/api/properties/")
       .then((res) => {
-        this.setState({ allProperties: res.data }, () =>
-          console.log("done", this.state)
+        this.setState(
+          {
+            currentProperties: res.data.results,
+            allProperties: res.data.count,
+          }
+          // ,
+          // () => console.log("done", res.data, this.state)
         );
       })
       .catch((err) => console.log(err));
   };
 
   onPageChanged = (data) => {
-    const { currentPage, totalPages, pageLimit } = data;
+    const { currentPage, totalPages } = data; console.log("yeah", data, currentPage)
 
     axios
-      .get(
-        `http://127.0.0.1:8000/api/properties?page=${currentPage}&size=${pageLimit}`
-      )
+      .get(`http://127.0.0.1:8000/api/properties/?page=${currentPage}`)
       .then((response) => {
-        const currentProperties = response.data;
-        this.setState({ currentPage, currentProperties, totalPages }, () => console.log(response.data, currentProperties, this.state));
+        const currentProperties = response.data.results;
+        this.setState({ currentPage, currentProperties, totalPages }
+          // , () =>
+          // console.log("done2", this.state)
+        );
       });
   };
 
   render() {
     const { allProperties, currentProperties, currentPage, totalPages } =
       this.state;
-    const totalProperties = allProperties.length;
+    const totalProperties = allProperties;
+    console.log(totalProperties);
 
     if (totalProperties === 0) return null;
 
@@ -90,9 +97,12 @@ class Properties extends Component {
           md={3}
           className="justify-content-space-between g-4"
         >
-          {currentProperties.map((property) => (
-            <PropertyCard key={property.id} property={property} />
-          ))}
+          {
+            (console.log(currentProperties, currentPage),
+            currentProperties.map((property) => (
+              <PropertyCard key={property.id} property={property} />
+            )))
+          }
         </Row>
         <br />
         <Row
@@ -105,10 +115,11 @@ class Properties extends Component {
             paddingBottom: 100,
           }}
         >
+          {console.log(totalProperties)}
           <div>
             <Pagination
               totalRecords={totalProperties}
-              pageLimit={5}
+              pageLimit={3}
               pageNeighbours={1}
               onPageChanged={this.onPageChanged}
             />
