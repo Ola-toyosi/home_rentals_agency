@@ -21,7 +21,9 @@ function App() {
         <Flexible />
       </section>
       <section>
-        <PropertyForm />
+        <PropertyForm 
+          // onSave={this.handleSubmit}
+          />
       </section>
     </Landing>
   );

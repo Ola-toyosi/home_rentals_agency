@@ -27,8 +27,9 @@ class Properties extends Component {
           {
             currentProperties: res.data.results,
             allProperties: res.data.count,
-          },
-          () => console.log("done", res.data, this.state)
+          }
+          // ,
+          // () => console.log("done", res.data, this.state)
         );
       });
     } catch (error) {
@@ -49,7 +50,7 @@ class Properties extends Component {
 
   onPageChanged = (data) => {
     const { currentPage, totalPages } = data;
-    console.log("yeah", data, currentPage);
+    // console.log("yeah", data, currentPage);
     try {
       axios
         .get(`http://127.0.0.1:8000/api/properties/?page=${currentPage}`)
@@ -81,7 +82,7 @@ class Properties extends Component {
     const { allProperties, currentProperties, currentPage, totalPages } =
       this.state;
     const totalProperties = allProperties;
-    console.log(this.state);
+    // console.log(this.state);
 
     if (totalProperties === 0) return null;
 
@@ -125,7 +126,8 @@ class Properties extends Component {
           className="justify-content-space-between g-4"
         >
           {
-            (console.log(currentProperties, currentPage),
+            (
+              // console.log(currentProperties, currentPage),
             currentProperties.map((property) => (
               <PropertyCard key={property.id} property={property} />
             )))
@@ -142,7 +144,7 @@ class Properties extends Component {
             paddingBottom: 100,
           }}
         >
-          {console.log(totalProperties)}
+          {/* {console.log(totalProperties)} */}
           <div>
             <Pagination
               totalRecords={totalProperties}

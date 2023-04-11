@@ -39,10 +39,10 @@ class Pagination extends Component {
     // calculate total pages based on records
     this.totalPages = Math.ceil(this.totalRecords / this.pageLimit);
     
-    console.log("okay", totalRecords, this.pageLimit);
+    // console.log("okay", totalRecords, this.pageLimit);
 
     this.state = { currentPage: 1 };
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   /**

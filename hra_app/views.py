@@ -29,6 +29,7 @@ from rest_framework import status, viewsets
         
 
 class PropertyView(viewsets.ModelViewSet):
+    parser_classes = (MultiPartParser, FormParser)
 
     serializer_class = PropertySerializer
 
