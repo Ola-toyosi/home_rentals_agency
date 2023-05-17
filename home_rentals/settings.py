@@ -12,8 +12,19 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import dj_database_url
+
+import environ
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# Setting up environ variables
+env = environ.Env()
+
+environ.Env.read_env()
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -21,12 +32,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-@+mccrd&p^c=wt@q5*(v+l#^=^7y0&-ii#89+l-tl%3+qtz=og"
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(' ')
 
 # Application definition
 
@@ -140,10 +151,8 @@ STATIC_ROOT = "staticfiles"
 STATIC_URL = "/static/"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-REACT_APP_DIR = BASE_DIR / "frontend"
-STATICFILES_DIRS = [
-    REACT_APP_DIR / "build" / "static",
-]
+MEDIA_URL ="/media/"
+MEDIA_ROOT = BASE_DIR / 'post_images'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
