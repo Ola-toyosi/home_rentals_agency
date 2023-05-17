@@ -72,11 +72,7 @@ REST_FRAMEWORK = {
     # "PAGE_SIZE": 2
 }
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3001",
-    "http://localhost:3000",
-    "http://127.0.0.1:8000",
-]
+CORS_ORIGIN_WHITELIST = env('CORS_ORIGIN_WHITELIST').split(' ')
 
 ROOT_URLCONF = "home_rentals.urls"
 
