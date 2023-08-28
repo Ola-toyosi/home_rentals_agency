@@ -1,1 +1,4 @@
 .env
+/djenv
+/ecommerce_env
+db.sqlite3
