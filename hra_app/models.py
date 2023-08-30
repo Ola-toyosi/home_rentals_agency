@@ -45,6 +45,7 @@ class SuperAdmin(models.Model):
 
 class Lister(models.Model):
     id = models.AutoField(primary_key=True)
+    admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -53,6 +54,7 @@ class Lister(models.Model):
 
 class EndUser(models.Model):
     id = models.AutoField(primary_key=True)
+    admin = models.OneToOneField(CustomUser, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=15)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -69,19 +71,19 @@ def create_user_profile(sender, instance, created, **kwargs):
         if instance.user_type == 1:
             SuperAdmin.objects.create(admin=instance)
         if instance.user_type == 2:
-            Lister.objects.create()
+            Lister.objects.create(admin=instance)
         if instance.user_type == 3:
-            EndUser.objects.create()
+            EndUser.objects.create(admin=instance)
 
 
-# @receiver(post_save, sender=CustomUser)
-# def save_user_profile(sender, instance, **kwargs):
-#     if instance.user_type == 1:
-#         instance.superadmin.save()
-#     if instance.user_type == 2:
-#         instance.LISTER.save()
-#     if instance.user_type == 3:
-#         instance.enduser.save()
+@receiver(post_save, sender=CustomUser)
+def save_user_profile(sender, instance, **kwargs):
+    if instance.user_type == 1:
+        instance.superadmin.save()
+    if instance.user_type == 2:
+        instance.lister.save()
+    if instance.user_type == 3:
+        instance.enduser.save()
 
 
 class Property(models.Model):

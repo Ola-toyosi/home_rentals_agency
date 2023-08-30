@@ -76,13 +76,13 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         user.set_password(validated_data['password'])
         user.save()
-
-        if user.user_type == CustomUser.SUPERADMIN:
-            SuperAdmin.objects.create()
-        if user.user_type == CustomUser.LISTER:
-            Lister.objects.create(phone_number='')
-        if user.user_type == CustomUser.USER:
-            EndUser.objects.create(phone_number='')
+        # if user.user_type == CustomUser.SUPERADMIN:
+        #     SuperAdmin.objects.create(admin=user)
+        # if user.user_type == CustomUser.LISTER:
+        #     print(user)
+        #     Lister.objects.create(admin=user)
+        # if user.user_type == CustomUser.USER:
+        #     EndUser.objects.create(admin=user)
 
         return user
 
