@@ -11,7 +11,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-from .models import Property, CustomUser
+from .models import Property, CustomUser, Lister, SuperAdmin, EndUser
 from .pagination import CustomPagination
 from .serializers import MyTokenObtainPairSerializer, RegisterSerializer
 from .serializers import PropertySerializer
@@ -27,6 +27,17 @@ class RegisterView(generics.CreateAPIView):
     queryset = CustomUser.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = RegisterSerializer
+
+def lister_home(request):
+    print(request)
+    lister_obj = Lister.objects.get(admin=request.user.id)
+    print(lister_obj)
+    return lister_obj
+
+def user_home(request):
+    user_obj = EndUser.objects.get(admin=request.user.id)
+    print(user_obj)
+
 
 
 @api_view(['GET'])

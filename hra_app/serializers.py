@@ -2,7 +2,7 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from .models import CustomUser, SuperAdmin, Lister, EndUser
+from .models import CustomUser
 from .models import Property
 
 MIN_LENGTH = 8
@@ -16,6 +16,10 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         # Add custom claims
         token['username'] = user.username
         token['email'] = user.email
+        token['user_type'] = user.user_type
+        token['phone_number'] = user.phone_number
+        # token['admin'] = user.admin
+        # print(user.admin)
         return token
 
 
@@ -92,3 +96,21 @@ class PropertySerializer(serializers.ModelSerializer):
     class Meta:
         model = Property
         fields = '__all__'
+
+    # def create(self, validated_data):
+    #     lister = Property.objects.create(
+    #
+    #         name=validated_data["name"],
+    #         address=validated_data["address"],
+    #         unit_number=validated_data["unit_number"],
+    #         city=validated_data["city"],
+    #         state=validated_data["state"],
+    #         type=validated_data["room_type"],
+    #         price=validated_data["price"],
+    #         description=validated_data["description"],
+    #         image=validated_data["image"],
+    #         lister_id=validated_data["lister_id"],
+    #     )
+    #     print(lister.lister_id)
+    #
+    #     return lister
